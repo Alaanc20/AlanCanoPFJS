@@ -1,0 +1,161 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../assets/images/lluvia.gif");
+  background-size: cover;
+  background-position: center;
+  animation: rainAnimation 10s linear infinite;
+  overflow-x: hidden;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.search-input {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+}
+
+.fa-search {
+  margin-left: 5px;
+  color: #888;
+}
+.hora-actual {
+  font-size: 24px;
+  font-weight: bold;
+text-align: right;
+
+}
+h1 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#ciudades-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ciudad {
+  width: 220px;
+  height: 300px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.detalles {
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.ciudad p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.detalles p {
+  margin: 5px 0;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  background-color:rgb(0, 128, 255)
+}
+
+.nav-link {
+  text-decoration: none;
+  margin-left: 20px; 
+  font-weight: bold;
+  color: black;
+}
+
+.logo {
+  height: 100px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#ciudades-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ciudad {
+  width: 220px;
+  text-align: center;
+}
+
+.ciudad img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.ciudad p {
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+}
+.argesta {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(0, 128, 255);
+  box-sizing: border-box; /* Agregada esta propiedad */
+}
+
+.argesta p {
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+.titulo-contact {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+p{
+      margin:10px;
+      padding:10px;
+  }
+.redes {
+  text-align: center;
+}
+
+.redes h3 {
+  margin-bottom: 1rem;
+}
+
+.redes img {
+  margin-bottom: 1rem;
+}
+
+.redes a img {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+  padding: 10px;
+}
