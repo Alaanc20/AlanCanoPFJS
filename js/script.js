@@ -1,7 +1,8 @@
 window.onload = function () {
     const ciudadesContainer = document.getElementById("ciudades-container");
-
-    const ciudades = datosClimaConImagen; // Utiliza el array datosClimaConImagen en lugar de datosClima
+    const ciudadFavoritaSelect = document.getElementById("ciudadFavoritaSelect");
+    const detallesCiudad = document.getElementById("detallesCiudad");
+    const ciudades = datosClimaConImagen;
 
     ciudades.forEach(function (ciudad) {
         const ciudadElement = document.createElement("div");
@@ -10,36 +11,44 @@ window.onload = function () {
         <img src="${ciudad.img}" alt="${ciudad.ciudad}">
         <p>${ciudad.ciudad}: ${ciudad.temperatura}°C</p>
 `;
-
         ciudadElement.addEventListener("click", function () {
             toggleDetalles(ciudadElement);
         });
-
         ciudadesContainer.appendChild(ciudadElement);
+    });
+    ciudadFavoritaSelect.addEventListener("change", function () {
+        const ciudadSeleccionada = ciudadFavoritaSelect.value;
+        const ciudad = obtenerCiudad(ciudadSeleccionada);
+        if (ciudad) {
+            const detallesHTML = generarDetallesHTML(ciudad);
+            detallesCiudad.innerHTML = detallesHTML;
+        } else {
+            detallesCiudad.innerHTML = "";
+        }
     });
 };
 
 function toggleDetalles(ciudadElement) {
-    // Verificar si los detalles están visibles
-    const detallesElement = ciudadElement.nextElementSibling;
-    const estaExpandido = detallesElement && detallesElement.classList.contains("detalles");
+    // comprueba si esta visible los detalles
+    const detallesElement = ciudadElement.querySelector(".detalles");
+    const estaExpandido = detallesElement && detallesElement.classList.contains("visible");
 
     if (estaExpandido) {
-        // Si está expandido, ocultar los detalles y restablecer el evento de clic
+        // si esta expandido oculta detalles y reset
         detallesElement.remove();
         ciudadElement.addEventListener("click", function () {
             toggleDetalles(ciudadElement);
         });
     } else {
-        // Si no está expandido, crear y mostrar los detalles y remover el evento de clic
+        // verifica si esta expandido sino lo hace
         const ciudad = obtenerCiudad(ciudadElement.textContent);
         const detallesHTML = generarDetallesHTML(ciudad);
 
         const nuevosDetallesElement = document.createElement("div");
-        nuevosDetallesElement.classList.add("detalles");
+        nuevosDetallesElement.classList.add("detalles", "visible");
         nuevosDetallesElement.innerHTML = detallesHTML;
 
-        ciudadElement.insertAdjacentElement("afterend", nuevosDetallesElement);
+        ciudadElement.appendChild(nuevosDetallesElement);
         ciudadElement.removeEventListener("click", function () {
             toggleDetalles(ciudadElement);
         });
@@ -47,7 +56,7 @@ function toggleDetalles(ciudadElement) {
 }
 
 function obtenerCiudad(ciudadTexto) {
-    // Buscar la ciudad en el array de datosClima
+    // busca ciudad
     return datosClima.find(function (ciudad) {
         return ciudad.ciudad === ciudadTexto.split(":")[0].trim();
     });
@@ -55,9 +64,9 @@ function obtenerCiudad(ciudadTexto) {
 
 function generarDetallesHTML(ciudad) {
     return `
-        <p><strong>Probabilidad de lluvia:</strong> ${ciudad.probabilidadLluvia}%</p>
-        <p><strong>Amanecer:</strong> ${ciudad.amanecer}</p>
-        <p><strong>Anochecer:</strong> ${ciudad.anochecer}</p>
-        <p><strong>Descripción:</strong> ${ciudad.descripcion}</p>
+      <p><strong>Probabilidad de lluvia:</strong> ${ciudad.probabilidadLluvia}%</p>
+      <p><strong>Amanecer:</strong> ${ciudad.amanecer}</p>
+      <p><strong>Anochecer:</strong> ${ciudad.anochecer}</p>
+      <p><strong>Descripción:</strong> ${ciudad.descripcion}</p>
     `;
 }

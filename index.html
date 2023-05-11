@@ -3,53 +3,87 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-lYFGj3b6P+cRqSmEot+pfNpjBvjM3nUSKpeFn4vkaDjepGvBykYYa5vA1G9jjvqW" crossorigin="anonymous">
-
-    <title>Clima Ideal</title>
+    <meta name="description" content="Página de Climas - Obtén información sobre el clima en diferentes ciudades.">
+    <meta name="keywords" content="Clima, Temperatura, Pronóstico, Ciudad, Lluvia, Amanecer, Anochecer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" href="./assets/images/Logo.jpg" rel="shortcut icon">
+    <meta name="author" content="Tus Climas Favoritos">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="es">
+    <meta itemprop="genre" content="Weather">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tu Clima Ideal</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
-<header>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-          <ul class="navbar-nav ml-auto d-flex align-items-center">
-              <a class="nav-link" href="./index.html">
-                <img src="./assets/images/Logo.jpg" alt="Logo" class="logo">
-              </a>
-            </li>
-              <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
-            </li>
-              <a class="nav-link" href="./pages/contacto.html">Contacto</a>
-            </li>
-            <div class="search-box ml-auto">
-                <input type="text" placeholder="Buscar ciudad" class="form-control">
-                <i class="fas fa-search"></i>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-</header>
 
 <body>
-    
-    <h1>☀️ Climas en el mundo 🌧️</h1>
-    <p id="horaActual" class="hora-actual"></p>
-    <div id="ciudades-container"></div>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    <a class="nav-link" href="./index.html">
+                        <img src="./assets/images/Logo.jpg" alt="Logo" class="logo">
+                    </a>
+                    <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
+                    <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+                    <div class="search-box ml-auto">
+                        <input type="text" placeholder="Buscar ciudad" class="form-control">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>☀️ Climas en el mundo 🌧️</h1>
+        <select id="ciudadFavoritaSelect">
+            <option value="">Selecciona tu ciudad favorita</option>
+            <option value="Londres">Londres</option>
+            <option value="Nueva York">Nueva York</option>
+            <option value="Tokio">Tokio</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Shanghai">Shanghai</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Estambul">Estambul</option>
+            <option value="El Cairo">El Cairo</option>
+            <option value="Lima">Lima</option>
+            <option value="París">París</option>
+            <option value="Roma">Roma</option>
+            <option value="Buenos Aires">Buenos Aires</option>
+            <option value="Sídney">Sídney</option>
+            <option value="Ciudad de México">Ciudad de México</option>
+        </select>
+        <button id="guardarCiudadFavoritaBtn">Guardar</button>
+        <div id="detallesCiudad"></div>
+        <p id="horaActual" class="hora-actual"></p>
+        <div id="ciudadesMasLluvia">
+            <h3>Ciudades con mayor probabilidad de lluvia:</h3>
+        </div>
+        <div id="ciudadesMenosLluvia">
+            <h3>Ciudades con menor probabilidad de lluvia:</h3>
+        </div>
+        <div id="ciudades-container"></div>
+    </main>
+    <footer>
+        <div class="redes">
+            <h3>Seguinos en nuestras redes</h3>
+            <a href="https://www.facebook.com/alaanc20" target="_blank">
+                <img src="./assets/images/facebook.png" alt="Icono de Facebook">
+            </a>
+            <a href="https://www.instagram.com/alaanc20" target="_blank">
+                <img src=".//assets/Images/instagram.png" alt="Icono de Instagram">
+            </a>
+            <a href="https://www.twitter.com/alaanc20" target="_blank">
+                <img src=".//assets/Images/gorjeo.png" alt="Icono de Twitter">
+            </a>
+        </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/climas.js"></script>
     <script src="./js/actual.js"></script>
+    <script src="./js/interaccion.js"></script>
 </body>
-<footer>
-    <div class="redes">
-        <h3>Seguinos en nuestras redes</h3>
-        <a href="https://www.facebook.com/alaanc20" target="_blank"><img src="./assets/images/facebook.png"
-                alt="Icono de Facebook">
-            <a href="https://www.instagram.com/alaanc20" target="_blank"><img src=".//assets/Images/instagram.png"
-                    alt="Icono de Instagram">
-                <a href="https://www.twitter.com/alaanc20" target="_blank"><img src=".//assets/Images/gorjeo.png"
-                        alt="Icono de Twitter">
-    </div>
-</footer>
-
 </html>

@@ -25,7 +25,6 @@ horaActualElemento.textContent = horaActual;
 console.log("Error al obtener la hora actual: " + error);
 });
 }
-
 obtenerHoraActual();
 
 setInterval(obtenerHoraActual, 1000);
